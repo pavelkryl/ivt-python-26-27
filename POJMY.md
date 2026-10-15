@@ -1,6 +1,6 @@
 # Slovníček pojmů – Úvod do programování
 
-Pojmy z lekcí 1–4. Slovníček se bude průběžně doplňovat.
+Pojmy z lekcí 1–5. Slovníček se bude průběžně doplňovat.
 
 ---
 
@@ -103,20 +103,31 @@ Pravidla:
 - záleží na velikosti písmen: `delka` a `Delka` jsou dvě různé proměnné.
 - měl by být psaný `snake_case` konvencí
 - měl by být psaný malými písmeny
-- měli bychom vynechat diaktritiku
+- měli bychom vynechat diakritiku
 - měl by vystihovat význam proměnné, nebojte se delších názvů
-
 
 Platné: `delka`, `delka_schodu`, `x2`
 Neplatné: `2x`, `delka schodu`, `delka-schodu`
 
 **x = x + 1**
-Vezmi současnou hodnotu `x`, přičti 1 a výsledek ulož zpět do `x`. Nejde o rovnici: `=` tu znamená „ulož“.
+Nejde o rovnici: `=` tu znamená „ulož“. Provádí se ve dvou krocích:
+1. nejdřív se spočítá pravá strana (vezme se současná hodnota `x` a přičte se 1),
+2. pak se štítek `x` přelepí na výsledek.
 
 ```python
 x = 5
 x = x + 1
 print(x)  # vypíše 6
+```
+
+Pozor, nefunguje to jako vzorec v Excelu: do proměnné se uloží hodnota, ne postup výpočtu.
+
+```python
+cena = 100
+pocet = 3
+celkem = cena * pocet
+pocet = 5
+print(celkem)  # vypíše 300, ne 500
 ```
 
 **Proč proměnné u schodů**
@@ -126,30 +137,4 @@ Když je délka schodu v proměnné, změníš ji na jednom místě a změní se
 
 ## Želva
 
-**Želva (turtle)**
-Knihovna Pythonu pro kreslení. Želva se pohybuje po obrazovce podle příkazů a za sebou kreslí čáru (například dopředu o určitou vzdálenost, otočení vlevo nebo vpravo o daný úhel).
-
----
-
-## Interpret
-
-**Interpret (python3)**
-Program, který čte kód v Pythonu a provádí ho. Používá se ve dvou režimech:
-
-**Interaktivní režim**
-Spustíš `python3` v terminálu bez souboru. Píšeš příkazy po jednom a každý se hned provede. Hodí se na zkoušení a jako kalkulačka.
-
-**Neinteraktivní spuštění**
-Interpret provede celý program ze souboru, například když program spustíš ve VS Code.
-
-**Prompt `>>>`**
-Výzva interaktivního interpretu: čeká na další příkaz.
-
-**Prompt `...`**
-Interpret čeká na pokračování příkazu, protože ho považuje za nedokončený (třeba chybí zavírací závorka). Doplň, co chybí, nebo odešli prázdný řádek.
-
-**Ukončení interpretu**
-`Ctrl-D`, nebo příkaz `exit()`.
-
-**Interpret jako kalkulačka**
-V interaktivním režimu napíšeš výpočet a interpret hned ukáže výsledek, `print` není potřeba.
+**Želva
