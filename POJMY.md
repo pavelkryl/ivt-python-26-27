@@ -262,7 +262,7 @@ V první iteraci se spočítá `5 + 5`, tedy 10, a štítek `delka` se přelepí
 
 ## Naše nářadí
 
-Jsme tesaři, kteří staví dřevostavbu (program). Každý pojem je nástroj a s každou lekcí nějaký přibude.
+Jsme tesaři, kteří staví dřevostavbu (program). Každý pojem je nástroj a budou postupně přibývat.
 
 - **kladivo a hřebíky**: lineární provádění, hřebík po hřebíku, příkaz po příkazu
 - **tesařská tužka**: proměnná, poznamenám si míru a pak ji používám
