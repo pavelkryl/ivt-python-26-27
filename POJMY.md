@@ -260,6 +260,33 @@ V první iteraci se spočítá `5 + 5`, tedy 10, a štítek `delka` se přelepí
 
 ---
 
+## Moduly a import
+
+**Modul**
+Soubor s hotovými funkcemi, které nejsou přímo součástí Pythonu. Například `forward` a `left` jsou v modulu `turtle`. Naopak `print` je součástí Pythonu a nic importovat nemusíme.
+
+**Import**
+Než funkce z modulu použijeme, musíme modul naimportovat. Jsou dva způsoby.
+
+S předponou: funkce voláme s názvem modulu a tečkou.
+
+```python
+import turtle
+
+turtle.forward(100)
+turtle.left(90)
+```
+
+S hvězdičkou: všechny funkce z modulu jsou k dispozici rovnou, bez předpony.
+
+```python
+from turtle import *
+
+forward(100)
+left(90)
+```
+---
+
 ## Naše nářadí
 
 Jsme tesaři, kteří staví dřevostavbu (program). Každý pojem je nástroj a budou postupně přibývat.
