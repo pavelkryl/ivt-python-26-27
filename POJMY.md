@@ -1,6 +1,6 @@
 # Slovníček pojmů – Úvod do programování
 
-Pojmy z lekcí 1–5. Slovníček se bude průběžně doplňovat.
+Pojmy z lekcí 1–7. Slovníček se bude průběžně doplňovat.
 
 ---
 
@@ -32,7 +32,7 @@ Vypíše nejdřív `první`, potom `druhý`.
 To, co program vypíše. Ve VS Code ho najdeš v okně terminálu ve spodní části obrazovky.
 
 **print**
-Příkaz, který vypíše hodnotu na výstup. Umí vypsat text i číslo.
+Funkce, která vypíše hodnotu na výstup. Umí vypsat text i číslo.
 
 ```python
 print("Ahoj")
@@ -144,11 +144,20 @@ Knihovna Pythonu pro kreslení. Želva se pohybuje po obrazovce podle příkazů
 from turtle import *
 
 forward(100)  # dopředu o 100
+backward(30)  # couvnout o 30, směr se nezmění
 left(90)      # otočit vlevo o 90 stupňů
 right(90)     # otočit vpravo o 90 stupňů
 
 done()
 ```
+
+**circle**
+`circle(50)` nakreslí kružnici s poloměrem 50. Želva jde proti směru hodinových ručiček, střed kružnice má po levé ruce. Skončí tam, kde začala, a míří stejným směrem.
+
+`circle(50, 90)` nakreslí jen kus kružnice: druhý parametr je **výseč**, tedy kolik stupňů z celé kružnice se nakreslí.
+
+**speed**
+`speed(0)` na začátku programu: želva kreslí nejrychleji, jak umí.
 
 **done()**
 Patří na konec programu se želvou spouštěného ze souboru. Bez něj se okno s kresbou po doběhnutí programu hned zavře.
@@ -262,8 +271,8 @@ V první iteraci se spočítá `5 + 5`, tedy 10, a štítek `delka` se přelepí
 
 ## Moduly a import
 
-**Modul**
-Soubor s hotovými funkcemi, které nejsou přímo součástí Pythonu. Například `forward` a `left` jsou v modulu `turtle`. Naopak `print` je součástí Pythonu a nic importovat nemusíme.
+**Modul (knihovna)**
+Soubor s hotovými funkcemi, které nejsou přímo součástí Pythonu. Modulu se často říká také knihovna. Například `forward` a `left` jsou v modulu `turtle`. Naopak `print` je součástí Pythonu a nic importovat nemusíme.
 
 **Import**
 Než funkce z modulu použijeme, musíme modul naimportovat. Jsou dva způsoby.
@@ -285,6 +294,65 @@ from turtle import *
 forward(100)
 left(90)
 ```
+
+**math**
+Modul s matematickými funkcemi. Importujeme ho s předponou.
+
+```python
+import math
+
+odmocnina = math.sqrt(16)
+print(odmocnina)  # vypíše 4.0
+```
+
+`math.sqrt(x)` vrátí odmocninu z `x`.
+
+**round**
+Funkce, která zaokrouhlí číslo. Je součástí Pythonu, nic importovat nemusíme.
+`round(1.41421, 2)` vrátí `1.41`, tedy číslo zaokrouhlené na 2 desetinná místa.
+
+---
+
+## Funkce
+
+**Funkce**
+Pojmenovaný hotový nástroj, který něco udělá nebo spočítá. Funkci použijeme (zavoláme) tak, že napíšeme její název a za něj závorky: `forward(100)`, `print("Ahoj")`, `math.sqrt(16)`.
+
+**Parametr (vstup funkce)**
+Hodnota, kterou funkci předáme v závorkách. U `forward(100)` je parametrem `100`.
+Funkce nemusí mít žádný parametr, pak píšeme jen prázdné závorky: `done()`.
+Funkce může mít i víc parametrů, oddělujeme je čárkou: `print(a, b)`, `circle(50, 90)`.
+
+**Dva druhy chování funkcí**
+Některé funkce něco **udělají**, mají nějaký efekt: `forward(100)` nakreslí čáru, `print("Ahoj")` vypíše text.
+Jiné funkce něco **spočítají** a výsledek vrátí: `math.sqrt(16)` vrátí `4.0`.
+Funkce klidně může obojí: něco udělat i něco vrátit.
+
+**Návratová hodnota (výstup funkce)**
+Výsledek, který funkce vrátí. Uložíme ho do proměnné a pracujeme s ním dál.
+
+```python
+import math
+
+odmocnina = math.sqrt(16)
+dvojnasobek = odmocnina * 2
+print(dvojnasobek)  # vypíše 8.0
+```
+
+Podobně jako v matematice: odmocnina ze 16 je 4. Vstupem je 16, výstupem 4.
+
+**Zahozená návratová hodnota**
+Když návratovou hodnotu neuložíme do proměnné ani nevypíšeme, zahodí se.
+
+```python
+import math
+
+math.sqrt(16)
+```
+
+Program spuštěný ze souboru nevypíše nic. Funkce odmocninu spočítala, ale výsledek jsme nikam neuložili. Python přitom nehlásí žádnou chybu.
+Pozor: v interaktivním režimu se `4.0` vypíše, protože interaktivní interpret vypisuje výsledky sám.
+
 ---
 
 ## Naše nářadí
@@ -294,3 +362,4 @@ Jsme tesaři, kteří staví dřevostavbu (program). Každý pojem je nástroj a
 - **kladivo a hřebíky**: lineární provádění, hřebík po hřebíku, příkaz po příkazu
 - **tesařská tužka**: proměnná, poznamenám si míru a pak ji používám
 - **hřebíkovačka**: cyklus, stejná akce mnohokrát, rychle a bez únavy
+- **krabička s nářadím**: modul (knihovna), sada hotových nástrojů, které za nás vyrobil někdo jiný; než je použijeme, krabičku si přineseme (import)
