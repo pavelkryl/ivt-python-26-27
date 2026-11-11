@@ -1,6 +1,6 @@
 # Slovníček pojmů – Úvod do programování
 
-Pojmy z lekcí 1–7. Slovníček se bude průběžně doplňovat.
+Pojmy z lekcí 1–8. Slovníček se bude průběžně doplňovat.
 
 ---
 
@@ -316,7 +316,7 @@ Funkce, která zaokrouhlí číslo. Je součástí Pythonu, nic importovat nemus
 ## Funkce
 
 **Funkce**
-Pojmenovaný hotový nástroj, který něco udělá nebo spočítá. Funkci použijeme (zavoláme) tak, že napíšeme její název a za něj závorky: `forward(100)`, `print("Ahoj")`, `math.sqrt(16)`.
+Pojmenovaný nástroj, který něco udělá nebo spočítá. Hotové funkce za nás napsal někdo jiný (`print`, `forward`, `math.sqrt`), vlastní funkce si napíšeme sami. Funkci použijeme (zavoláme) tak, že napíšeme její název a za něj závorky: `forward(100)`, `print("Ahoj")`, `math.sqrt(16)`.
 
 **Parametr (vstup funkce)**
 Hodnota, kterou funkci předáme v závorkách. U `forward(100)` je parametrem `100`.
@@ -355,6 +355,60 @@ Pozor: v interaktivním režimu se `4.0` vypíše, protože interaktivní interp
 
 ---
 
+## Vlastní funkce
+
+**Vlastní funkce**
+Funkce, kterou si napíšeme sami. Hodí se, když stejný kus kódu potřebujeme v programu víckrát.
+
+```python
+from turtle import *
+
+def pyramida():
+    schod = 20
+    for i in range(3):
+        left(90)
+        forward(schod)
+        right(90)
+        forward(schod)
+    for i in range(3):
+        right(90)
+        forward(schod)
+        left(90)
+        forward(schod)
+
+pyramida()
+pyramida()
+
+done()
+```
+Nakreslí dvě pyramidy vedle sebe.
+
+**Definice funkce**
+Funkci definujeme klíčovým slovem `def`, za ním napíšeme název funkce, závorky a dvojtečku: `def pyramida():`.
+Definice funkci jen popíše, tedy řekne, jak se má chovat. Sama nic neprovede: program, který funkci jen definuje a nezavolá, nenakreslí nic.
+
+**Tělo funkce**
+Odsazené řádky pod `def`, podobně jako tělo cyklu. Tělo končí prvním řádkem, který už odsazený není. V těle funkce může být i cyklus.
+
+**Volání funkce**
+Funkci zavoláme tak, že napíšeme její název a za něj závorky: `pyramida()`. Při každém zavolání se provede celé tělo funkce. Funkci můžeme volat, kolikrát chceme.
+
+**Operátor volání funkce**
+Závorky za názvem funkce. Teprve ony funkci zavolají. Bez závorek (`pyramida`) se funkce nezavolá, nic se nestane a Python přitom nehlásí chybu.
+Do závorek napíšeme vstup (parametr), pokud ho funkce má. Pokud ne, zůstanou prázdné, jako u `done()` nebo `pyramida()`.
+
+**Nejdřív definice, pak volání**
+Program se provádí shora dolů. Když funkci zavoláme dřív, než je definovaná, skončí to chybou:
+
+```
+NameError: name 'pyramida' is not defined
+```
+
+**Proč vlastní funkce**
+Když chceš na vrchol každé pyramidy vlajku, bez funkce ji musíš vložit do kódu tolikrát, kolik je pyramid. S funkcí ji přidáš jednou do těla funkce a mají ji všechny pyramidy.
+
+---
+
 ## Naše nářadí
 
 Jsme tesaři, kteří staví dřevostavbu (program). Každý pojem je nástroj a budou postupně přibývat.
@@ -363,3 +417,4 @@ Jsme tesaři, kteří staví dřevostavbu (program). Každý pojem je nástroj a
 - **tesařská tužka**: proměnná, poznamenám si míru a pak ji používám
 - **hřebíkovačka**: cyklus, stejná akce mnohokrát, rychle a bez únavy
 - **krabička s nářadím**: modul (knihovna), sada hotových nástrojů, které za nás vyrobil někdo jiný; než je použijeme, krabičku si přineseme (import)
+- **šablona**: vlastní funkce, nástroj, který si vyrobím sám; vyrobím ji jednou a podle ní pak udělám libovolně mnoho stejných kusů; když šablonu upravím, mají úpravu všechny další kusy
